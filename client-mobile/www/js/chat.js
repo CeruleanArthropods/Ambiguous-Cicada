@@ -21,6 +21,7 @@ angular.module('kwiki.chat',[])
   };
 
   chatFact.postMessage = function (message) {
+    console.log(message);
     this.socket.emit('message', message);
   };
 
@@ -29,6 +30,8 @@ angular.module('kwiki.chat',[])
 }])
 
 .controller('ChatCtrl', ['$rootScope', '$state', '$scope', 'ChatFactory', 'AuthFactory', function ($rootScope, $state, $scope, ChatFactory, AuthFactory) {
+
+  var triggerWords = ['cho', 'tempest', 'birthday', 'tea']
 
   $scope.messages = [];
 
@@ -57,6 +60,17 @@ angular.module('kwiki.chat',[])
   };
 
   $scope.sendMessage = function () {
+
+    $scope.message.triggerWord = false;
+    var parseText = $scope.message.text.split(" ");
+
+    parseText.forEach(function(text) {
+      if(triggerWords.indexOf(text) !== -1) {
+        $scope.message.triggerWord = text;
+        console.log("make it rain")
+      }
+    })
+
     if( $scope.message ){
       ChatFactory.postMessage(this.message);
       $scope.messages.push({
@@ -64,8 +78,13 @@ angular.module('kwiki.chat',[])
         text: this.message.text
       });
       $scope.message.text = '';
+      $scope.message.triggerWord = false;
     }
   };
+
+  // PLACEHOLDER
+  // $scope.makeItRain = function(triggerWord) {
+  // };
 
   $scope.logOut = function () {
     $scope.messages = [];
