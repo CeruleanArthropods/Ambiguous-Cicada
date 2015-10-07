@@ -13,7 +13,7 @@ angular.module('kwiki.profile', [])
   };
 
   var updateProfileInfo = function(userProfile) {
-    return $http.post('/profile/:id', userProfile)
+    return $http.put('/profile/:id', userProfile)
       .then(function(res) {
         return res.data;
       })
