@@ -1,6 +1,6 @@
 angular.module('kwiki.profile', [])
 
-.factory('ProfileFactory', function ($http, $state, SocketFactory, $window, $rootscope) {
+.factory('ProfileFactory', function ($http, $state, SocketFactory, $window, $rootScope) {
 
   var getProfileInfo = function(userProfile) {
     return $http.get('/profile/:id', userProfile)
