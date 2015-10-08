@@ -1,9 +1,19 @@
 angular.module('kwiki.profile', [])
 
-.factory('ProfileFactory', function ($http, $state, SocketFactory, $window, $rootscope) {
+.factory('ProfileFactory', function ($http, $state, SocketFactory, $window, $rootScope) {
+
+  var getProfileInfo = function(userProfile) {
+    return $http.get('/profile/:id', userProfile)
+      .then(function(res) {
+        return res.data
+      })
+      .catch(function(err) {
+        console.log(err)
+      })
+  };
 
   var updateProfileInfo = function(userProfile) {
-    return $http.post('/??????????', userProfile)
+    return $http.put('/profile/:id', userProfile)
       .then(function(res) {
         return res.data;
       })
@@ -13,6 +23,7 @@ angular.module('kwiki.profile', [])
   };
 
   return {
+    getProfileInfo: getProfileInfo,
     updateProfileInfo: updateProfileInfo
   }
 })
@@ -20,7 +31,7 @@ angular.module('kwiki.profile', [])
 .controller('ProfileCtrl', function ($rootScope, $state, $scope, ProfileFactory, AuthFactory) {
 
   $scope.handleSubmit = function(userProfile) {
-
+    console.log(userProfile)
     ProfileFactory.updateProfileInfo(userProfile)
       .then(function(res) {
       })
