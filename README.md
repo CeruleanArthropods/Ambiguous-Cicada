@@ -1,16 +1,16 @@
 [![Stories in Ready](https://badge.waffle.io/Ambiguous-Cicada/Ambiguous-Cicada.png?label=ready&title=Ready)](https://waffle.io/Ambiguous-Cicada/Ambiguous-Cicada)
 
-# Kwiki
+# Sonar
 
-Kwiki is a mobile chat app that brings closeby users together.
+Sonar is a mobile chat app that brings closeby users together.
 
 Refer to our [Documentation](DOCS.md) for internal details of our app.
 
-## Original Kwiki Team
+## Sonar Team
 
-  - __Product Owner__: Daniel O'Leary
-  - __Scrum Master__: JT Knox
-  - __Development Team__: Niraj Vora, Michael Junio, Daniel O'Leary, JT Knox
+  - __Product Owner__: Benjamin Hoffman
+  - __Scrum Master__: Taylor Lehman
+  - __Development Team__: Amy Chiu, Gary Ye
 
 ## Table of Contents
 
